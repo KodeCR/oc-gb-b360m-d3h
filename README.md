@@ -5,9 +5,10 @@ Italic settings are not required
 *Default settings (mostly Auto)*
 
 ## System
-*BIOS Version F12b*
+*BIOS Version F15b*
 
 ## BIOS
+- CFG Lock: Disabled 
 - Fast Boot: Disabled
 - *Windows 8/10 Features: Windows 8/10*
 - CSM Support: Disabled
