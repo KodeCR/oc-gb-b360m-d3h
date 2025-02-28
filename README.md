@@ -54,3 +54,39 @@ Italic settings are not required
 - *Power Loading: Auto*
 - CEC 2019 Ready: Disabled (needed, otherwise forces PCH ASPM to enabled)
 - RC6(Render Standby): Disabled (breaks sleep, no wake)
+
+# GigaByte B360M D3H USB port map
+USB ports on the rear pannel
+- 2 USB2 on the left side: top is port 7, bottom is port 8
+- USB3 gen 2 port in the middle: port 1(USB2)/17(USB3)
+- USB-C port (with switch) in the middle: port 2(USB2)/18(USB3)
+- 2 USB3 on the right side: top is port 6(USB2)/22(USB3), bottom is port 5(USB2)/21(USB3)
+
+USB internal connectors
+- F_USB30: port 4(USB2)/20(USB3) and port 3(USB2)/19(USB3)
+- F_USB1: port 13(USB2) and port 14(USB2)
+- F_USB2: port 9(USB2) and port 10(USB2)
+
+The DSDT uses \UMAP for USB2 ports (HS__) and \UMP3 for USB3 ports (SS__).
+They are bitmaps where a high bit at a bit position enables the corresponding port. So 0x33FF/0b0011_0011_1111_1111 enables all USB2 port and 0x3F/0b0011_1111 enables all USB3 ports.
+macOS only supports a maximum of 15 ports. The following SSDT disable the internal F_USB1/F_USB2 except for port 14 and enables all others.
+
+```
+//
+// SSDT to set USB map (UMAP)
+//
+DefinitionBlock ("", "SSDT", 2, " ", "UMAP", 0x00001000)
+{
+    External (\UMAP, IntObj)
+    External (\UMP3, IntObj)
+ 
+    Scope (\_SB)
+    {
+        Method (_INI, 0, NotSerialized)  // _INI: Initialize
+        {
+            Store (0x20FF, \UMAP)
+            Store (0x003F, \UMP3)
+        }
+    }
+}
+```
