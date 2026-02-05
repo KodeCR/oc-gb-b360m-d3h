@@ -32,7 +32,7 @@ Italic settings are not required
 - Intel Ethernet Connection -> NIC Configuration -> Wake On LAN: Disabled (breaks sleep, restart on wake)
 
 ### Chipset
-- VT-d: Disabled (causes WiFi/Bluetooth issues, bad connection, alternative is DisableIoMapper: True)
+- VT-d: Enabled (causes Ethernet connect/disconnect issues, use DisableIoMapper: True)
 - *Internal Graphics: Enabled*
 - *DVMT Pre-Allocated: 64M*
 - *DVMT Total Gfx Mem: MAX*
