@@ -1,0 +1,16 @@
+# WTXUP Broadcom BCM943602CS Wi-Fi 1300Mbps Dual Band 802.11ac Bluetooth 4.1
+
+This is a natively supported chipset
+- Wi-Fi: BCM943602 - VEN_0x14E3 DEV_0x43BA, natively supported till macOS 13 Ventura
+- Bluetooth
+  - At first install, it's a BCM2045A0 - USB VEN_0x0A5C DEV_0x21FF
+  - After Windows Bootcamp driver installation it becomes an BCM20703 - USB VEN_0x05AC DEV_0x8290, which is native supported
+
+## Install
+- Boot Windows
+- Use Brigadier to download BootCamp for iMac19,1
+- Install $WinPEDriver$\BroadcomWirelessNIC\bcmwl63.inf
+- Install $WinPEDriver$\AppleBluetoothBroadcom\AppleBTBC.inf
+
+## Wi-Fi for >= macOS 14 Sonoma
+- Use Apple Broadcom Wi-Fi Companion
