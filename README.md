@@ -7,7 +7,7 @@ Italic settings are not required
 *Default settings (mostly Auto)*
 
 ### System
-*BIOS Version F15b*
+*BIOS Version F17a*
 
 ### BIOS
 - CFG Lock: Disabled 
@@ -38,6 +38,7 @@ Italic settings are not required
 - *DVMT Total Gfx Mem: MAX*
 - *Audio Controller: Enabled*
 - *Above 4G Decoding: Enabled*
+- *Resizable BAR: Auto (needs ResizeAppleGpuBars: 0)*
 - *PCH LAN Controller: Enabled*
 - *Wake on LAN Enable: Enabled*
 - *IOAPIC 24-119 Entries: Enabled*
@@ -156,6 +157,8 @@ DefinitionBlock ("", "SSDT", 2, " ", "UMAP", 0x00001000)
 - AppleSmcIo: true
 ### Virtialisation support
 - DisableIoMapper: true
+### GPU ReBAR support
+- ResizableAppleGpuBars: 0
 ### Other optional
 - DisableLinkeditJettison: true
 - PanicNoKextDump: true
